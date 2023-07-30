@@ -17,5 +17,15 @@
 # include <stdlib.h>
 # include <errno.h>
 # include <string.h>
+# include <limits.h>
+# include <stdbool.h>
+
+typedef struct	s_stack
+{
+	int				val;
+	int				pos;
+	struct s_stack	*next;
+	struct s_stack	*prec;
+}				t_stack;
 
 #endif

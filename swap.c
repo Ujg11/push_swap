@@ -13,9 +13,9 @@
 #include "push_swap.h"
 #include "./libft/libft.h"
 
-void	swap_stack_a(long *stack_a, int *num_in)
+void	sa(long *stack_a, int *num_in)
 {
 	long	aux;
 
-	if ()
+	 
 }
