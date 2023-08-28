@@ -72,3 +72,14 @@ int	stack_size(t_stack *stack)
 	}
 	return (cont);
 }
+
+int	stack_is_sorted(t_stack *stk)
+{
+	while (stk->next)
+	{
+		if (stk->val > stk->next->val)
+			return (0);
+		stk = stk->next;
+	}
+	return (1);
+}

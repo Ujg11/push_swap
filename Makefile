@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-OBJECTS = 
+OBJECTS = main.o errors.o init_stack.o push.o reverse_rotate.o rotate.o sort_for_three.o stack_utils.o swap.o
 
 all $(NAME)
 

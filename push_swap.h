@@ -29,13 +29,14 @@ typedef struct	s_stack
 }				t_stack;
 
 //init_stack.c
-void	init_stack(t_stack **a, char **argv, int flag);
+void	init_stack(t_stack **a, char **argv, bool flag);
 
 //stack_utils.c
 t_stack *find_last(t_stack *stack);
 void	push_element_at_final(t_stack **stack, int nbr);
 t_stack	*find_small(t_stack *stack);
 int		stack_size(t_stack *stack);
+int		stack_is_sorted(t_stack *stk);
 
 //errors.c
 int		syntax_error(char *s);
@@ -44,7 +45,7 @@ void	error_free(t_stack **a, char **argv, int flag);
 
 //swap.c
 void	sa(t_stack **a, int flag)
-void	sa(t_stack **b, int flag)
+void	sb(t_stack **b, int flag)
 void	ss(t_stack **a, t_stack **b);
 
 //push.c
@@ -55,5 +56,13 @@ void	pb(t_stack **b, t_stack **a);
 void	ra(t_stack **a, int flag);
 void	rb(t_stack **b, int flag);
 void	rr(t_stack **a, t_stack **b);
+
+//reverse_rotate.c
+void	rra(t_stack **a, int flag);
+void	rrb(t_stack **b, int flag);
+void	rrr(t_stack **a, t_stack **b);
+
+//sort_for_three.c
+void	sort_for_three(t_stack **a);
 
 #endif

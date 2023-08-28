@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
 	t_stack *a;
-	t_stack *b,
+	t_stack *b;
 
 	a = NULL;
 	b = NULL;
@@ -27,12 +27,12 @@ int main(int argc, char *argv[])
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');//ens poden pasar tots els nums en el argv[1]
 	init_stack(&a, argv + 1, argc == 2);//ens pasen cada num com un argument
-	if (!stack_sorted(a))
+	if (!stack_is_sorted(a))
 	{
 		if (stack_len(a) == 2)
-			sa(&a, false);
+			sa(&a, 1);
 		else if (stack_len(a) == 3)
-			tiny_sort(&a);
+			sort_for_three(&a);
 		else
 			push_swap(&a, &b);
 	}
