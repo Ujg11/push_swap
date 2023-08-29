@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 11:31:55 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/08/29 12:21:52 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "./libft/libft.h"
 
@@ -29,22 +41,21 @@ static int	ft_atol(const char *str)
 	return (res * neg);
 }
 
-void	init_stack(t_stack **a, char **argv, bool flag)
+void	init_stack(t_stack **a, char **argv)
 {
 	long	nbr;
 	int		i;
 
 	i = 0;
-	
 	while (argv[i])
 	{
 		if (syntax_error(argv[i]) == 0)
-			error_free(a, argv, flag);
+			error_free(a, argv);
 		nbr = ft_atol(argv[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
-			error_free(a, argv, flag);
+			error_free(a, argv);
 		if (rep_error(*a, (int)nbr))
-			error_free(a, argv, flag);
+			error_free(a, argv);
 		push_element_at_final(a, (int)nbr);
 		i++;
 	}

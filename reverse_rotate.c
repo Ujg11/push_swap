@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 11:33:29 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/08/29 11:52:28 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "./libft/libft.h"
 
 void	rra(t_stack **a, int flag)
 {
-	t_stack *last_to_first;
-	t_stack *new_last;
+	t_stack	*last_to_first;
+	t_stack	*new_last;
 
 	if (*a == NULL || a == NULL || stack_size(*a) < 2)
 		return ;
@@ -20,8 +32,8 @@ void	rra(t_stack **a, int flag)
 
 void	rrb(t_stack **b, int flag)
 {
-	t_stack *last_to_first;
-	t_stack *new_last;
+	t_stack	*last_to_first;
+	t_stack	*new_last;
 
 	if (*b == NULL || b == NULL || stack_size(*b) < 2)
 		return ;

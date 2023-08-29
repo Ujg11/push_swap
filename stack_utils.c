@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 11:34:50 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/08/29 15:07:24 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "./libft/libft.h"
 
-t_stack *find_last(t_stack *stack)
+t_stack	*find_last(t_stack *stack)
 {
 	t_stack	*last;
 
@@ -27,11 +39,9 @@ void	push_element_at_final(t_stack **stack, int nbr)
 		return ;
 	node->next = NULL;
 	node->val = nbr;
+	node->prev = NULL;
 	if (*stack == NULL)
-	{
-		*stack == node;
-		node->prev = NULL;
-	}
+		*stack = node;
 	else
 	{
 		last_node = find_last(*stack);
@@ -62,7 +72,7 @@ t_stack	*find_small(t_stack *stack)
 
 int	stack_size(t_stack *stack)
 {
-	int cont;
+	int	cont;
 
 	cont = 0;
 	while (stack)

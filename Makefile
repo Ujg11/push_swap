@@ -6,7 +6,7 @@
 #    By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 15:32:29 by ojimenez          #+#    #+#              #
-#    Updated: 2023/07/20 16:27:59 by ojimenez         ###   ########.fr        #
+#    Updated: 2023/08/29 12:18:45 by ojimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,19 +18,17 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-OBJECTS = main.o errors.o init_stack.o push.o reverse_rotate.o rotate.o sort_for_three.o stack_utils.o swap.o
+OBJECTS = main.o errors.o init_stack.o push_swap.o push.o reverse_rotate.o rotate.o sort_for_three.o stack_utils.o swap.o
 
-all $(NAME)
+all: $(NAME)
 
-$(LIBFT)
+$(LIBFT):
 	$(MAKE) -s -C $(LIBFT_PATH) all
 
 $(NAME): $(OBJECTS) $(LIBFT)
-	cp libft/libft.a $(NAME)
-	ar rc $(NAME) $(OBJECTS) $(LIBFT)
-	ranlib $(NAME)
+	$(CC) $(CFLAGS) $(OBJECTS) -L$(LIBFT_PATH) -lft -o $(NAME)
 
-%.o: %.c ft_printf.h
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -43,4 +41,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: re  all clean fclean
+.PHONY: re all clean fclean

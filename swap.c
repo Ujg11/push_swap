@@ -6,22 +6,12 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 18:11:24 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/07/20 18:16:32 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:42:23 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./libft/libft.h"
-
-int	swap(t_stack **a)
-{
-	t_stack *aux;
-
-	aux = (*a)->val;
-	(*a)->val = (*a)->next->val;
-	(*a)->next->val = aux;
-	return (1);
-}
 
 void	sa(t_stack **a, int flag)
 {

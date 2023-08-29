@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:26 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/07/20 18:09:38 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/08/29 12:22:04 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 # include <stdbool.h>
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int				val;
 	int				pos;
@@ -29,10 +29,10 @@ typedef struct	s_stack
 }				t_stack;
 
 //init_stack.c
-void	init_stack(t_stack **a, char **argv, bool flag);
+void	init_stack(t_stack **a, char **argv);
 
 //stack_utils.c
-t_stack *find_last(t_stack *stack);
+t_stack	*find_last(t_stack *stack);
 void	push_element_at_final(t_stack **stack, int nbr);
 t_stack	*find_small(t_stack *stack);
 int		stack_size(t_stack *stack);
@@ -41,11 +41,11 @@ int		stack_is_sorted(t_stack *stk);
 //errors.c
 int		syntax_error(char *s);
 int		rep_error(t_stack *a, int nbr);
-void	error_free(t_stack **a, char **argv, int flag);
+void	error_free(t_stack **a, char **argv);
 
 //swap.c
-void	sa(t_stack **a, int flag)
-void	sb(t_stack **b, int flag)
+void	sa(t_stack **a, int flag);
+void	sb(t_stack **b, int flag);
 void	ss(t_stack **a, t_stack **b);
 
 //push.c
@@ -64,5 +64,8 @@ void	rrr(t_stack **a, t_stack **b);
 
 //sort_for_three.c
 void	sort_for_three(t_stack **a);
+
+//push_swap.c
+void	push_swap(t_stack **a, t_stack **b);
 
 #endif

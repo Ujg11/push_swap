@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_for_three.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/29 11:34:33 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/08/29 11:50:54 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "./libft/libft.h"
 
 static t_stack	*find_biggest(t_stack *stk)
 {
-	int	big;
+	int		big;
 	t_stack	*biggest;
 
 	if (stk == NULL)
 		return (NULL);
 	big = -2147483648;
-	
 	while (stk)
 	{
 		if (stk->val > big)
@@ -24,7 +35,7 @@ static t_stack	*find_biggest(t_stack *stk)
 
 void	sort_for_three(t_stack **a)
 {
-	t_stack *biggest;
+	t_stack	*biggest;
 
 	biggest = find_biggest(*a);
 	if (*a == biggest)
