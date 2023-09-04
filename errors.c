@@ -42,7 +42,8 @@ int	rep_error(t_stack *a, int nbr)
 	return (1);
 }
 
-void	error_free(t_stack **a, char **argv)
+//En el cas que flag sigui true voldra dir que s'ha fet un split i s'ha de lliberar, sinó no
+void	error_free(t_stack **a, char **argv, bool flag)
 {
 	int		i;
 	t_stack	*tmp;
@@ -57,7 +58,7 @@ void	error_free(t_stack **a, char **argv)
 			free(tmp);
 		}
 	}
-	if (argv != NULL)
+	if (argv != NULL && flag)
 	{
 		i = 0;
 		while (argv[i] != NULL)

@@ -41,7 +41,7 @@ static int	ft_atol(const char *str)
 	return (res * neg);
 }
 
-void	init_stack(t_stack **a, char **argv)
+void	init_stack(t_stack **a, char **argv, bool flag)
 {
 	long	nbr;
 	int		i;
@@ -50,12 +50,12 @@ void	init_stack(t_stack **a, char **argv)
 	while (argv[i])
 	{
 		if (syntax_error(argv[i]) == 0)
-			error_free(a, argv);
+			error_free(a, argv, flag);
 		nbr = ft_atol(argv[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
-			error_free(a, argv);
+			error_free(a, argv, flag);
 		if (rep_error(*a, (int)nbr))
-			error_free(a, argv);
+			error_free(a, argv, flag);
 		push_element_at_final(a, (int)nbr);
 		i++;
 	}

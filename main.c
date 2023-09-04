@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');//ens poden pasar tots els nums en el argv[1]
 	ft_printf("split fet\n");
-	init_stack(&a, argv);//ens pasen cada num com un argument
+	init_stack(&a, argv, argc = 2);//ens pasen cada num com un argument
 	ft_printf("stack iniciat");
 	if (!stack_is_sorted(a))
 	{
@@ -38,5 +38,5 @@ int	main(int argc, char *argv[])
 		else
 			push_swap(&a, &b);
 	}
-	error_free(&a, argv);
+	error_free(&a, argv, argc == 2);
 }

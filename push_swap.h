@@ -29,7 +29,7 @@ typedef struct s_stack
 }				t_stack;
 
 //init_stack.c
-void	init_stack(t_stack **a, char **argv);
+void	init_stack(t_stack **a, char **argv, bool flag);
 
 //stack_utils.c
 t_stack	*find_last(t_stack *stack);
@@ -41,7 +41,7 @@ int		stack_is_sorted(t_stack *stk);
 //errors.c
 int		syntax_error(char *s);
 int		rep_error(t_stack *a, int nbr);
-void	error_free(t_stack **a, char **argv);
+void	error_free(t_stack **a, char **argv, bool flag);
 
 //swap.c
 void	sa(t_stack **a, int flag);
