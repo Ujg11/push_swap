@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:31:55 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/08/29 12:21:52 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:07:42 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,23 @@ static int	ft_atol(const char *str)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] - '0');
+		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
 	return (res * neg);
 }
 
-void	init_stack(t_stack **a, char **argv, bool flag)
+void	init_stack(t_stack **a, char **argv, int flag)
 {
 	long	nbr;
 	int		i;
 
 	i = 0;
+	if (!flag)
+		argv++;
 	while (argv[i])
 	{
-		if (syntax_error(argv[i]) == 0)
+		if (syntax_error(argv[i]))
 			error_free(a, argv, flag);
 		nbr = ft_atol(argv[i]);
 		if (nbr > 2147483647 || nbr < -2147483648)
@@ -59,4 +61,6 @@ void	init_stack(t_stack **a, char **argv, bool flag)
 		push_element_at_final(a, (int)nbr);
 		i++;
 	}
+	if (flag)
+		free_arguments(argv);
 }

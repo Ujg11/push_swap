@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ojimenez <ojimenez@student.42barcel>       +#+  +:+       +#+        */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:34:04 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/08/29 11:34:15 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/06 15:52:14 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,34 @@
 
 void	ra(t_stack **a, int flag)
 {
-	t_stack	*first_to_last;
+	t_stack	*last;
 
-	if (*a == NULL || a == NULL || stack_size(*a) < 2)
+	if (*a == NULL || a == NULL || stack_size(*a) == 1)
 		return ;
-	first_to_last = *a;
+	last = find_last(*a);
+	last->next = *a;
 	*a = (*a)->next;
 	(*a)->prev = NULL;
-	while (*a)
-		*a = (*a)->next;
-	(*a)->next = first_to_last;
-	first_to_last->prev = *a;
+	last->next->prev = last;
+	last->next->next = NULL;
 	if (flag == 1)
 		write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b, int flag)
 {
-	t_stack	*first_to_last;
+	t_stack	*last;
 
-	if (*b == NULL || b == NULL || stack_size(*b) < 2)
+	if (*b == NULL || b == NULL || stack_size(*b) == 1)
 		return ;
-	first_to_last = *b;
+	last = find_last(*b);
+	last->next = *b;
 	*b = (*b)->next;
 	(*b)->prev = NULL;
-	while (*b)
-		*b = (*b)->next;
-	(*b)->next = first_to_last;
-	first_to_last->prev = *b;
+	last->next->prev = last;
+	last->next->next = NULL;
 	if (flag == 1)
-		write(1, "rb\n", 3);
+		write(1, "ra\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)

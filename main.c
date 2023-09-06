@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:11 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/08/29 14:55:39 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/06 16:07:24 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ int	main(int argc, char *argv[])
 	else if (argc == 2 && argv[1][0] == '\0')
 		return (1);
 	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');//ens poden pasar tots els nums en el argv[1]
-	ft_printf("split fet\n");
-	init_stack(&a, argv, argc = 2);//ens pasen cada num com un argument
-	ft_printf("stack iniciat");
+		argv = ft_split(argv[1], ' ');
+	init_stack(&a, argv, argc == 2);
 	if (!stack_is_sorted(a))
 	{
 		if (stack_size(a) == 2)
@@ -38,5 +36,5 @@ int	main(int argc, char *argv[])
 		else
 			push_swap(&a, &b);
 	}
-	error_free(&a, argv, argc == 2);
+	free_stack(&a);
 }

@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:26 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/08/29 12:22:04 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/06 14:40:15 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack
 }				t_stack;
 
 //init_stack.c
-void	init_stack(t_stack **a, char **argv, bool flag);
+void	init_stack(t_stack **a, char **argv, int flag);
 
 //stack_utils.c
 t_stack	*find_last(t_stack *stack);
@@ -41,7 +41,9 @@ int		stack_is_sorted(t_stack *stk);
 //errors.c
 int		syntax_error(char *s);
 int		rep_error(t_stack *a, int nbr);
-void	error_free(t_stack **a, char **argv, bool flag);
+void	free_arguments(char **argv);
+void	free_stack(t_stack **stack);
+void	error_free(t_stack **a, char **argv, int flag);
 
 //swap.c
 void	sa(t_stack **a, int flag);
