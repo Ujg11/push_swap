@@ -6,7 +6,7 @@
 #    By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/20 15:32:29 by ojimenez          #+#    #+#              #
-#    Updated: 2023/08/29 12:18:45 by ojimenez         ###   ########.fr        #
+#    Updated: 2023/09/08 15:54:29 by ojimenez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFT_PATH = ./libft
 LIBFT = $(LIBFT_PATH)/libft.a
 
-OBJECTS = main.o errors.o init_stack.o push_swap.o push.o reverse_rotate.o rotate.o sort_for_three.o stack_utils.o swap.o
+OBJECTS = main.o errors.o init_stack.o push_swap.o push.o reverse_rotate.o rotate.o sort_for_three.o stack_utils.o swap.o sort_for_five.o
 
 all: $(NAME)
 
