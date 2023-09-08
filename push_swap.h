@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:26 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 14:40:15 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/08 15:24:59 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_stack(t_stack **a, char **argv, int flag);
 
 //stack_utils.c
 t_stack	*find_last(t_stack *stack);
-void	push_element_at_final(t_stack **stack, int nbr);
+void	push_element_at_final(t_stack **stack, int nbr, int pos);
 t_stack	*find_small(t_stack *stack);
 int		stack_size(t_stack *stack);
 int		stack_is_sorted(t_stack *stk);
@@ -66,6 +66,9 @@ void	rrr(t_stack **a, t_stack **b);
 
 //sort_for_three.c
 void	sort_for_three(t_stack **a);
+
+//sort_for_five.c
+void	sort_for_five(t_stack **a, t_stack **b);
 
 //push_swap.c
 void	push_swap(t_stack **a, t_stack **b);

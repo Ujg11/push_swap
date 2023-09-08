@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:11 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 16:07:24 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:20:37 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char *argv[])
 			sa(&a, 1);
 		else if (stack_size(a) == 3)
 			sort_for_three(&a);
+		else if (stack_size(a) == 5)
+			sort_for_five(&a, &b);
 		else
 			push_swap(&a, &b);
 	}

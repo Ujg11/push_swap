@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:31:55 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 16:07:42 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:41:29 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	init_stack(t_stack **a, char **argv, int flag)
 			error_free(a, argv, flag);
 		if (rep_error(*a, (int)nbr))
 			error_free(a, argv, flag);
-		push_element_at_final(a, (int)nbr);
+		push_element_at_final(a, (int)nbr, i);
 		i++;
 	}
 	if (flag)

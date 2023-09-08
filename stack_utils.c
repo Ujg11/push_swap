@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:34:50 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 12:41:00 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:43:20 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*find_last(t_stack *stack)
 	return (stack);
 }
 
-void	push_element_at_final(t_stack **stack, int nbr)
+void	push_element_at_final(t_stack **stack, int nbr, int pos)
 {
 	t_stack	*node;
 	t_stack	*last_node;
@@ -47,6 +47,7 @@ void	push_element_at_final(t_stack **stack, int nbr)
 		last_node->next = node;
 		node->prev = last_node;
 	}
+	node->pos = pos;
 }
 
 t_stack	*find_small(t_stack *stack)
