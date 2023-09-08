@@ -6,14 +6,14 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:31:55 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/08 14:41:29 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/08 16:21:44 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "./libft/libft.h"
 
-static int	ft_atol(const char *str)
+static long	ft_atol(const char *str)
 {
 	int		i;
 	int		neg;
