@@ -13,60 +13,66 @@
 #include "push_swap.h"
 #include "./libft/libft.h"
 
-static int	choose_pivot(t_stack *a)
+static int	next_move(t_stack *a)
 {
-	int		pivot;
-	t_stack	*aux;
+	t_stack	*small;
+	t_stack	*current;
+	int		cont;
+	int		ret;
 
-	pivot = 0;
-	aux = a;
-	while (pivot < stack_size(a) / 2)
+	current = a;
+	small = find_small(a);
+	cont = 1;
+	while (current->val != small->val && current != NULL)
 	{
-		aux = aux->next;
-		pivot++;
+		current = current->next;
+		cont++;
 	}
-	pivot = (a->val * aux->val * find_last(a)->val) / 3;
-	return (pivot);
+	if (cont > stack_size(a) / 2)
+		ret = 2;
+	else if (cont <= stack_size(a) / 2)
+		ret = 1;
+	return (ret);
 }
 
-static void	divide_in_two(t_stack **a, t_stack **b, int pivot)
+static void	move_up_or_down(t_stack **a, t_stack *small, int move)
 {
-	t_stack	*iterator;
-
-	iterator = *a;
-	while (iterator->next)
+	while (*a != small)
 	{
-		if (iterator->val < pivot)
-			pb(b, a);
+		if (move == 1)
+			ra(a, 1);
 		else
-			iterator = iterator->next;
+			rra(a, 1);
 	}
 }
 
-static void	sort_in_ascendent(t_stack	**a)
+static void	turn_to_a(t_stack **a, t_stack **b)
 {
-	while (!stack_is_sorted(a))
+	while (stack_size(b) != 0)
 	{
-		if ((*a)->val )
-	}
-}
-
-static void	sort_in_descendent(t_stack **b)
-{
-	while (!stack_is_sorted(b))
-	{
-		
+		pa(a, b);
 	}
 }
 
 void	push_swap(t_stack **a, t_stack **b)
 {
-	int	pivot;
+	int		mid;
+	int 	move;
+	t_stack	*small;
+	t_stack	*current;
 
-	pivot = choose_pivot(*a);
-	divide_in_two(a, b, pivot);
-	sort_in_ascendent(a);
-	sort_in_descendent(b);
-	while ((*b)->next)
-		pa(a, b);
+	if (*a == NULL || a == NULL)
+		return ;
+	mid = stack_size(*a) / 2;
+	current = *a;
+	while (stack_size(*a) > 3)
+	{
+		small = find_small(*a);
+		move = next_move(*a);
+		move_up_or_down(a, small, move);
+		pb(b, a);
+	}
+	if (stack_size(a) == 3)
+		sort_for_three(a);
+	turn_to_a(a, b);
 }
