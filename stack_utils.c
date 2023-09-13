@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:34:50 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/08 14:43:20 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:40:58 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_stack	*find_small(t_stack *stack)
 	if (stack == NULL)
 		return (NULL);
 	small = INT_MAX;
+	smallest_node = NULL;
 	while (stack)
 	{
 		if (stack->val < small)
