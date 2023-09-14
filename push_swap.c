@@ -29,7 +29,7 @@ static void	rrr_stacks(t_stack **a, t_stack **b, t_stack *cheapest)
 	set_position(*b);
 }
 
-void	put_on_top(t_stack	**stack, t_stack *top, char a_or_b)
+static void	put_on_top(t_stack	**stack, t_stack *top, char a_or_b)
 {
 	while (*stack != top)
 	{
