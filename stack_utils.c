@@ -24,7 +24,7 @@ t_stack	*find_last(t_stack *stack)
 	return (stack);
 }
 
-void	push_element_at_final(t_stack **stack, int nbr, int pos)
+void	push_element_at_final(t_stack **stack, int nbr)
 {
 	t_stack	*node;
 	t_stack	*last_node;
@@ -47,7 +47,6 @@ void	push_element_at_final(t_stack **stack, int nbr, int pos)
 		last_node->next = node;
 		node->prev = last_node;
 	}
-	node->pos = pos;
 }
 
 t_stack	*find_small(t_stack *stack)

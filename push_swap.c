@@ -13,6 +13,82 @@
 #include "push_swap.h"
 #include "./libft/libft.h"
 
+static void	rr_stacks(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while (*a != cheapest->target && *b != cheapest)
+		rr(a, b);
+	set_position(*a);
+	set_position(*b);
+}
+
+static void	rrr_stacks(t_stack **a, t_stack **b, t_stack *cheapest)
+{
+	while (*a != cheapest->target && *b != cheapest)
+		rrr(a, b);
+	set_position(*a);
+	set_position(*b);
+}
+
+void	put_on_top(t_stack	**stack, t_stack *top, char a_or_b)
+{
+	while (*stack != top)
+	{
+		if (a_or_b == 'a')
+		{
+			if (top->above_median)
+				ra(stack, 1);
+			else
+				rra(stack, 1);
+		}
+		else if (a_or_b == 'b')
+		{
+			if (top->above_median)
+				rb(stack, 1);
+			else
+				rrb(stack, 1);
+		}
+	}
+}
+
+static void	movements(t_stack **a, t_stack **b)
+{
+	t_stack	*cheapest;
+
+	cheapest = *b;
+	while (!cheapest->cheapest)
+		cheapest->next;
+	if (cheapest->above_median && cheapest->target->above_median)
+		rr_stacks(a, b, cheapest);
+	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
+		rrr_stacks(a, b, cheapest);
+	put_on_top(a, cheapest->target, 'a');
+	put_on_top(b, cheapest, 'b');
+	pa(a, b);
+}
+
+
+void	push_swap(t_stack **a, t_stack **b)
+{
+	t_stack	*smallest;
+
+	while (stack_size(a) > 3)
+		pb(b, a);
+	sort_for_three(a);
+	while (*b)
+	{
+		init_nodes(*a, *b);
+		movements(a, b);
+	}
+	set_position(a);
+	smallest = find_small(*a);
+	if (smallest->above_median)
+		while (*a != smallest)
+			ra(a, 1);
+	else
+		while (*a != smallest)
+			rra(a, 1);
+}
+
 /*static int	next_move(t_stack *a)
 {
 	t_stack	*small;
@@ -77,101 +153,3 @@ void	push_swap(t_stack **a, t_stack **b)
 		sort_for_three(a);
 	turn_to_a(a, b);
 }*/
-
-void	push_swap(t_stack **a, t_stack **b)
-{
-	t_stack	*smallest;
-	int		size_a;
-
-	size_a = stack_size(*a);
-	while (size_a > 3)
-	{
-		pb(b, a);
-		size_a--;
-	}
-	while (*b)
-	{
-		init_nodes
-	}
-}
-
-
-
-
-
-
-// Función para encontrar el número mínimo en una pila
-int find_min(t_stack *stack) {
-    int min_val = stack->val;
-    while (stack) {
-        if (stack->val < min_val) {
-            min_val = stack->val;
-        }
-        stack = stack->next;
-    }
-    return min_val;
-}
-
-// Función para contar el número de elementos en una pila
-int count_elements(t_stack *stack) {
-    int count = 0;
-    while (stack) {
-        count++;
-        stack = stack->next;
-    }
-    return count;
-}
-
-// Función para realizar una operación de push_swap
-void push_swap_sort(t_stack **stack_a, t_stack **stack_b) {
-    while (*stack_a != NULL) {
-        int min_val = find_min(*stack_a);
-        int min_index = count_elements(*stack_a) - 1;
-
-        // Paso 2: Encontrar el número más barato
-        while ((*stack_a)->val != min_val || (*stack_a)->index != min_index) {
-            if ((*stack_a)->val == min_val) {
-                // Realizar una rotación inversa en A
-                rra(stack_a);
-            } else {
-                // Realizar una rotación en A
-                ra(stack_a);
-            }
-        }
-
-        // Empujar el número más barato a B
-        pb(stack_a, stack_b);
-    }
-
-    // Paso 3: Últimos tres elementos
-    if (count_elements(*stack_b) == 3) {
-        // Realizar operaciones especiales en B
-        special_operations(stack_b);
-    }
-
-    // Paso 4: Regresar a A
-    while (*stack_b != NULL) {
-        int max_val = find_max(*stack_b);
-        int max_index = count_elements(*stack_b) - 1;
-
-        // Encontrar el número más caro en B
-        while ((*stack_b)->val != max_val || (*stack_b)->index != max_index) {
-            if ((*stack_b)->val == max_val) {
-                // Realizar una rotación inversa en B
-                rrb(stack_b);
-            } else {
-                // Realizar una rotación en B
-                rb(stack_b);
-            }
-        }
-
-        // Empujar el número más caro a A
-        pa(stack_b, stack_a);
-    }
-
-    // Paso 5: Arreglo final
-    int min_val = find_min(*stack_a);
-    while ((*stack_a)->val != min_val) {
-        ra(stack_a);
-    }
-}

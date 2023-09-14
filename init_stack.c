@@ -58,7 +58,7 @@ void	init_stack(t_stack **a, char **argv, int flag)
 			error_free(a, argv, flag);
 		if (rep_error(*a, (int)nbr))
 			error_free(a, argv, flag);
-		push_element_at_final(a, (int)nbr, i);
+		push_element_at_final(a, (int)nbr);
 		i++;
 	}
 	if (flag)

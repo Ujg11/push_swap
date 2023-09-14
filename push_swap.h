@@ -24,6 +24,11 @@ typedef struct s_stack
 {
 	int				val;
 	int				pos;
+	int				final_index;
+	int				price;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
@@ -33,7 +38,7 @@ void	init_stack(t_stack **a, char **argv, int flag);
 
 //stack_utils.c
 t_stack	*find_last(t_stack *stack);
-void	push_element_at_final(t_stack **stack, int nbr, int pos);
+void	push_element_at_final(t_stack **stack, int nbr);
 t_stack	*find_small(t_stack *stack);
 int		stack_size(t_stack *stack);
 int		stack_is_sorted(t_stack *stk);
@@ -69,6 +74,12 @@ void	sort_for_three(t_stack **a);
 
 //sort_for_five.c
 void	sort_for_five(t_stack **a, t_stack **b);
+
+//init_push_swap.c
+void	set_position(t_stack *s);
+void	set_price(t_stack *a, t_stack *b);
+void	set_cheapest(t_stack *b);
+void	init_nodes(t_stack *a, t_stack *b);
 
 //push_swap.c
 void	push_swap(t_stack **a, t_stack **b);
