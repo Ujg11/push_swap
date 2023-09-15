@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:31:08 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 16:15:01 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 14:32:11 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	error_free(t_stack **a, char **argv, int flag)
 	free_stack(a);
 	if (flag == 1)
 	{
-		ft_printf("fem el free\n");
 		free_arguments(argv);
 	}
 	write (2, "Error\n", 6);
