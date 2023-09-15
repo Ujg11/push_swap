@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:16:10 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/13 15:25:06 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:25:44 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	movements(t_stack **a, t_stack **b)
 
 	cheapest = *b;
 	while (!cheapest->cheapest)
-		cheapest->next;
+		cheapest = cheapest->next;
 	if (cheapest->above_median && cheapest->target->above_median)
 		rr_stacks(a, b, cheapest);
 	else if (!(cheapest->above_median) && !(cheapest->target->above_median))
@@ -70,8 +70,10 @@ static void	movements(t_stack **a, t_stack **b)
 void	push_swap(t_stack **a, t_stack **b)
 {
 	t_stack	*smallest;
+	int		len_a;
 
-	while (stack_size(a) > 3)
+	len_a = stack_size(*a);
+	while (len_a-- > 3)
 		pb(b, a);
 	sort_for_three(a);
 	while (*b)
@@ -79,7 +81,7 @@ void	push_swap(t_stack **a, t_stack **b)
 		init_nodes(*a, *b);
 		movements(a, b);
 	}
-	set_position(a);
+	set_position(*a);
 	smallest = find_small(*a);
 	if (smallest->above_median)
 		while (*a != smallest)

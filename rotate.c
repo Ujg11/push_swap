@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 11:34:04 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/06 15:52:14 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:29:55 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	rb(t_stack **b, int flag)
 	last->next->prev = last;
 	last->next->next = NULL;
 	if (flag == 1)
-		write(1, "ra\n", 3);
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)

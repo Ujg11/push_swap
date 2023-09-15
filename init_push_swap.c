@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_push_swap.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/15 11:07:22 by ojimenez          #+#    #+#             */
+/*   Updated: 2023/09/15 11:07:54 by ojimenez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "./libft/libft.h"
 
@@ -27,7 +39,7 @@ void	set_position(t_stack *s)
 static void	set_target(t_stack *a, t_stack *b)
 {
 	t_stack	*current_a;
-	t_stack *target;
+	t_stack	*target;
 	int		best_match_val;
 
 	while (b)
@@ -69,7 +81,7 @@ void	set_price(t_stack *a, t_stack *b)
 void	set_cheapest(t_stack *b)
 {
 	long		best;
-	t_stack	*best_mach_node;
+	t_stack		*best_mach_node;
 
 	if (b == NULL)
 		return ;
@@ -81,7 +93,7 @@ void	set_cheapest(t_stack *b)
 			best = b->price;
 			best_mach_node = b;
 		}
-		b->next;
+		b = b->next;
 	}
 	best_mach_node->cheapest = true;
 }
