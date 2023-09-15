@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 17:52:26 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/15 10:29:19 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:42:44 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_stack
 	int				pos;
 	int				final_index;
 	int				price;
-	bool			above_median;
-	bool			cheapest;
+	int				above_median;
+	int				cheapest;
 	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;

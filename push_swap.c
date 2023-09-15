@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:16:10 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/15 11:25:44 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:44:18 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	movements(t_stack **a, t_stack **b)
 	t_stack	*cheapest;
 
 	cheapest = *b;
-	while (!cheapest->cheapest)
+	while (cheapest->cheapest == 0)
 		cheapest = cheapest->next;
 	if (cheapest->above_median && cheapest->target->above_median)
 		rr_stacks(a, b, cheapest);

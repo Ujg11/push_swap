@@ -6,7 +6,7 @@
 /*   By: ojimenez <ojimenez@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 11:07:22 by ojimenez          #+#    #+#             */
-/*   Updated: 2023/09/15 11:07:54 by ojimenez         ###   ########.fr       */
+/*   Updated: 2023/09/15 11:42:54 by ojimenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	set_position(t_stack *s)
 	{
 		s->pos = i;
 		if (i <= midle)
-			s->above_median = true;
+			s->above_median = 1;
 		else
-			s->above_median = false;
-		s->cheapest = false;
+			s->above_median = 0;
+		s->cheapest = 0;
 		s = s->next;
 		i++;
 	}
@@ -68,9 +68,9 @@ void	set_price(t_stack *a, t_stack *b)
 	while (b)
 	{
 		b->price = b->pos;
-		if (!(b->above_median))
+		if (b->above_median == 0)
 			b->price = stack_size(b) - b->pos;
-		if (b->target->above_median)
+		if (b->target->above_median == 1)
 			b->price += b->target->pos;
 		else
 			b->price += stack_size(a) - b->target->pos;
